@@ -37,10 +37,10 @@ export const getLocalStream = () => {
 
 const createPeerConnection = () => {
   const turnServers = getTurnServers();
-  
+
   const configuration = {
-    iceServers: [...turnServers, { url: 'stun: stun.1und1.de:3478' }],
-    iceTransportPolicy: 'relay'
+    iceServers: [...turnServers, { url: "stun:stun.1und1.de:3478" }],
+    iceTransportPolicy: "relay"
   };
 
   peerConnection = new RTCPeerConnection(configuration);
