@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import store from './store/store';
 import App from './App';
-
+import '@fortawesome/fontawesome-free/js/all.js';
 import './index.css';
 
 ReactDOM.render(

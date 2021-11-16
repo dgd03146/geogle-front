@@ -1,7 +1,7 @@
 import React from 'react';
 import './CallingDialog.css';
 import { hangUp } from '../../../utils/webRTC/webRTCHandler';
-import { MdCallEnd } from 'react-icons/md';
+// import { MdCallEnd } from 'react-icons/md';
 
 const styles = {
   buttonContainer: {
@@ -12,8 +12,8 @@ const styles = {
     border: '2px solid #e6e5e8',
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center'
-  }
+    justifyContent: 'center',
+  },
 };
 
 const CallingDialog = () => {
@@ -22,10 +22,13 @@ const CallingDialog = () => {
   };
 
   return (
-    <div className='direct_calling_dialog background_secondary_color'>
+    <div className="direct_calling_dialog background_secondary_color">
       <span>Calling</span>
       <div style={styles.buttonContainer} onClick={handleHangUpButtonPressed}>
-        <MdCallEnd style={{ width: '20px', height: '20px', fill: '#e6e5e8' }} />
+        <i
+          className="fas fa-phone-slash"
+          style={{ width: '20px', height: '20px', fill: '#e6e5e8' }}
+        />
       </div>
     </div>
   );

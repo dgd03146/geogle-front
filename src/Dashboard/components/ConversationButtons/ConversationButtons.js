@@ -1,23 +1,26 @@
 import React from 'react';
-import { MdCallEnd, MdMic, MdMicOff, MdVideocam, MdVideocamOff, MdVideoLabel, MdCamera } from 'react-icons/md';
+// import { MdCallEnd, MdMic, MdMicOff, MdVideocam, MdVideocamOff, MdVideoLabel, MdCamera } from 'react-icons/md';
 import ConversationButton from './ConversationButton';
-import { switchForScreenSharingStream, hangUp } from '../../../utils/webRTC/webRTCHandler';
+import {
+  switchForScreenSharingStream,
+  hangUp,
+} from '../../../utils/webRTC/webRTCHandler';
 
 const styles = {
   buttonContainer: {
     display: 'flex',
     position: 'absolute',
     bottom: '22%',
-    left: '35%'
+    left: '35%',
   },
   icon: {
     width: '25px',
     height: '25px',
-    fill: '#e6e5e8'
-  }
+    fill: '#e6e5e8',
+  },
 };
 
-const ConversationButtons = (props) => {
+const ConversationButtons = props => {
   const {
     localStream,
     localCameraEnabled,
@@ -25,7 +28,7 @@ const ConversationButtons = (props) => {
     setCameraEnabled,
     setMicrophoneEnabled,
     screenSharingActive,
-    groupCall
+    groupCall,
   } = props;
 
   const handleMicButtonPressed = () => {
@@ -51,17 +54,33 @@ const ConversationButtons = (props) => {
   return (
     <div style={styles.buttonContainer}>
       <ConversationButton onClickHandler={handleMicButtonPressed}>
-        {localMicrophoneEnabled ? <MdMic style={styles.icon} /> : <MdMicOff style={styles.icon} />}
+        {localMicrophoneEnabled ? (
+          <i className="fas fa-microphone" style={styles.icon} />
+        ) : (
+          <i className="fas fa-microphone-slash" style={styles.icon} />
+        )}
       </ConversationButton>
-      {!groupCall && <ConversationButton onClickHandler={handleHangUpButtonPressed}>
-        <MdCallEnd style={styles.icon} />
-      </ConversationButton>}
+      {!groupCall && (
+        <ConversationButton onClickHandler={handleHangUpButtonPressed}>
+          <i className="fas fa-phone-slash" style={styles.icon} />
+        </ConversationButton>
+      )}
       <ConversationButton onClickHandler={handleCameraButtonPressed}>
-        {localCameraEnabled ? <MdVideocam style={styles.icon} /> : <MdVideocamOff style={styles.icon} />}
+        {localCameraEnabled ? (
+          <i className="fas fa-video" style={styles.icon} />
+        ) : (
+          <i className="fas fa-video-slash" style={styles.icon} />
+        )}
       </ConversationButton>
-      {!groupCall && <ConversationButton onClickHandler={handleScreenSharingButtonPressed}>
-        {screenSharingActive ? <MdCamera style={styles.icon} /> : <MdVideoLabel style={styles.icon} />}
-      </ConversationButton>}
+      {!groupCall && (
+        <ConversationButton onClickHandler={handleScreenSharingButtonPressed}>
+          {screenSharingActive ? (
+            <i className="fas fa-camera" style={styles.icon} />
+          ) : (
+            <i className="fas fa-tags" style={styles.icon} />
+          )}
+        </ConversationButton>
+      )}
     </div>
   );
 };
