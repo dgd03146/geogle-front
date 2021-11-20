@@ -5,7 +5,14 @@ import {
   switchForScreenSharingStream,
   hangUp,
 } from '../../../utils/webRTC/webRTCHandler';
-
+import {
+  FaMicrophoneAlt,
+  FaMicrophoneAltSlash,
+  FaVideo,
+  FaVideoSlash,
+  FaChalkboard,
+  FaShareSquare,
+} from 'react-icons/fa';
 const styles = {
   buttonContainer: {
     display: 'flex',
@@ -55,9 +62,9 @@ const ConversationButtons = props => {
     <div style={styles.buttonContainer}>
       <ConversationButton onClickHandler={handleMicButtonPressed}>
         {localMicrophoneEnabled ? (
-          <i className="fas fa-microphone" style={styles.icon} />
+          <FaMicrophoneAlt style={styles.icon} />
         ) : (
-          <i className="fas fa-microphone-slash" style={styles.icon} />
+          <FaMicrophoneAltSlash style={styles.icon} />
         )}
       </ConversationButton>
       {!groupCall && (
@@ -67,20 +74,20 @@ const ConversationButtons = props => {
       )}
       <ConversationButton onClickHandler={handleCameraButtonPressed}>
         {localCameraEnabled ? (
-          <i className="fas fa-video" style={styles.icon} />
+          <FaVideo style={styles.icon} />
         ) : (
-          <i className="fas fa-video-slash" style={styles.icon} />
+          <FaVideoSlash style={styles.icon} />
         )}
       </ConversationButton>
-      {!groupCall && (
+      {
         <ConversationButton onClickHandler={handleScreenSharingButtonPressed}>
           {screenSharingActive ? (
-            <i className="fas fa-camera" style={styles.icon} />
+            <FaChalkboard style={styles.icon} />
           ) : (
-            <i className="fas fa-share-square" style={styles.icon} />
+            <FaShareSquare style={styles.icon} />
           )}
         </ConversationButton>
-      )}
+      }
     </div>
   );
 };
