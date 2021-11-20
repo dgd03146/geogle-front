@@ -77,7 +77,7 @@ const ConversationButtons = props => {
           {screenSharingActive ? (
             <i className="fas fa-camera" style={styles.icon} />
           ) : (
-            <i className="fas fa-tags" style={styles.icon} />
+            <i className="fas fa-share-square" style={styles.icon} />
           )}
         </ConversationButton>
       )}

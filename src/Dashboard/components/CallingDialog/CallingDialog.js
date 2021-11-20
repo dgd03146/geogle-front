@@ -22,7 +22,7 @@ const CallingDialog = () => {
   };
 
   return (
-    <div className="direct_calling_dialog background_secondary_color">
+    <div className="direct_calling_dialog">
       <span>Calling</span>
       <div style={styles.buttonContainer} onClick={handleHangUpButtonPressed}>
         <i

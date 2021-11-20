@@ -7,16 +7,14 @@ const CallRejectedDialog = ({ reason, hideCallRejectedDialog }) => {
     setTimeout(() => {
       hideCallRejectedDialog({
         rejected: false,
-        reason: ''
+        reason: '',
       });
     }, [4000]);
   }, []);
 
   return (
-    <div className='call_rejected_dialog background_secondary_color'>
-      <span>
-        {reason}
-      </span>
+    <div className="call_rejected_dialog">
+      <span>{reason}</span>
     </div>
   );
 };

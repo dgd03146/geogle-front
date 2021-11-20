@@ -19,18 +19,14 @@ code {
     monospace;
 }
 
-.background_main_color {
-  background-color: #8a85ff;
-}
-
 .background_secondary_color {
-  background-color: #282C34;
+  background-color: #282c34;
 }
 
 .text_main_color {
-  color: #e6e5e8;
+  color: #282c34;
 }
 
 .text_secondary_color {
-  color: #8a85ff;
+  color: #282c34;
 }

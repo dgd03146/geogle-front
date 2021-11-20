@@ -18,7 +18,7 @@ const Dashboard = ({ username, callState }) => {
   useEffect(() => {
     // HERE PLACE YOUR BACKEND SERVER ADDRESS TO FETCH TURN CREDENTIALS
     axios
-      .get('https://geogle-backend.herokuapp.com/api/get-turn-credentials')
+      .get('https://geoglemeet.herokuapp.com/api/get-turn-credentials')
       .then(responseData => {
         console.log(responseData);
         setTurnServers(responseData.data.token.iceServers);
@@ -31,7 +31,7 @@ const Dashboard = ({ username, callState }) => {
   }, []);
 
   return (
-    <div className="dashboard_container background_main_color">
+    <div className="dashboard_container">
       <div className="dashboard_left_section">
         <div className="dashboard_content_container">
           <DirectCall />
@@ -40,16 +40,13 @@ const Dashboard = ({ username, callState }) => {
             <DashboardInformation username={username} />
           )}
         </div>
-        <div className="dashboard_rooms_container background_secondary_color">
+        <div className="dashboard_rooms_container">
           <GroupCallRoomsList />
         </div>
       </div>
       <div className="dashboard_right_section background_secondary_color">
         <div className="dashboard_active_users_list">
           <ActiveUsersList />
-        </div>
-        <div className="dashboard_logo_container">
-          <img className="dashboard_logo_image" src={logo} />
         </div>
       </div>
     </div>
